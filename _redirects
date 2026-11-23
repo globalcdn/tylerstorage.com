@@ -1,0 +1,13 @@
+# Old WordPress pages -> sections of the new one-page site (301 keeps SEO value)
+/climate-controlled-standard-self-storage/  /#climate   301
+/climate-controlled-standard-self-storage   /#climate   301
+/covered-rv-and-boat-facilities/            /#rv        301
+/covered-rv-and-boat-facilities             /#rv        301
+/reservation/                               /#units     301
+/reservation                                /#units     301
+/contact-us/                                /#contact   301
+/contact-us                                 /#contact   301
+
+# The Reserve buttons still point to https://www.tylerstorage.com/dev/reservation (kept as-is).
+# If the old WordPress install under /dev is retired, uncomment the next line so those buttons land on the units list:
+# /dev/reservation   /#units   301
