@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.tylerstorage.com/</loc><lastmod>2026-11-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.tylerstorage.com/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6757.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6739-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6737-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6760.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6728-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_6741-scaled.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_header1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_header11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_header3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_header4-copy.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_2984a1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_IMG_2989.jpg</image:loc></image:image>
+    <image:image><image:loc>https://www.tylerstorage.com/images/tylerstorage_AG.jpg</image:loc></image:image>
+  </url>
 </urlset>
