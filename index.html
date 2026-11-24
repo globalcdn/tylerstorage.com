@@ -138,7 +138,7 @@ window.addEventListener('error', function (e) {
   --brown1:rgba(99,39,19,.51); --brown2:rgba(45,23,9,.77); /* original hero overlay */
   --radius:14px;
   --shadow:0 10px 30px rgba(34,34,34,.12);
-  --max:1180px;
+  --max:1440px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:118px}
@@ -146,7 +146,7 @@ body{margin:0;font-family:Raleway,Helvetica,Arial,sans-serif;color:var(--text);b
 img{max-width:100%;display:block}
 a{color:var(--red)}
 h1,h2,h3,h4{font-family:Raleway,Helvetica,Arial,sans-serif;color:var(--maroon);line-height:1.2;margin:0 0 .5em}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(16px,3vw,40px)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .skip{position:absolute;left:-999px;top:0;background:var(--red);color:#fff;padding:10px 16px;z-index:999}
 .skip:focus{left:10px}
@@ -247,19 +247,47 @@ nav.main a:hover{color:#fff;background:rgba(255,255,255,.08)}
 @media (max-width:860px){.welcome .grid{grid-template-columns:minmax(0,1fr)}.checks{grid-template-columns:1fr}.photo-stack .badge{left:10px}}
 
 /* ---------- Collapsible sections ---------- */
-.sections{padding:30px 0 60px}
+.wrap-wide{max-width:1440px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+.sections{padding:30px 0 50px}
+.sections + .sections{padding-top:50px}
+/* photo mosaic band */
+.mosaic-band{background:var(--stone);padding:clamp(44px,6vw,80px) 0}
+.band-head{text-align:center;max-width:760px;margin:0 auto 28px}
+.band-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:900}
+.band-head p{margin:0}
+.mosaic{display:grid;grid-auto-flow:dense;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:clamp(150px,16vw,240px);gap:12px}
+.tile{position:relative;padding:0;border:0;border-radius:var(--radius);overflow:hidden;cursor:zoom-in;background:var(--char)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .5s,opacity .3s}
+.tile:hover img{transform:scale(1.06);opacity:.9}
+.tile span{position:absolute;left:12px;bottom:12px;background:rgba(34,34,34,.78);color:#fff;font-weight:700;font-size:.85rem;padding:.35em .75em;border-radius:999px}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.tall{grid-row:span 2}
+@media (max-width:760px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}.tile.big{grid-column:span 2;grid-row:span 1}.tile.tall{grid-row:span 1}}
+/* security photo band */
+.photo-band{position:relative;overflow:hidden;color:#fff;padding:clamp(60px,9vw,120px) 0;background:var(--char)}
+.photo-band>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(45,23,9,.88) 0%,rgba(99,39,19,.6) 55%,rgba(99,39,19,.25) 100%)}
+.band-inner{position:relative;z-index:1}
+.photo-band h2{color:#fff;font-size:clamp(2rem,4vw,3rem);font-weight:900}
+.band-points{list-style:none;padding:0;margin:0 0 26px;display:grid;grid-template-columns:repeat(4,minmax(0,170px));gap:14px}
+.band-points li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--radius);padding:14px 16px;backdrop-filter:blur(3px)}
+.band-points b{display:block;font-size:1.6rem;color:var(--tan);font-weight:900;line-height:1.1}
+.band-points span{font-size:.85rem;font-weight:600}
+@media (max-width:700px){.band-points{grid-template-columns:repeat(2,minmax(0,1fr))}}
 details.panel{border-radius:var(--radius);background:#fff;box-shadow:0 2px 0 var(--stone),0 0 0 1px var(--stone);margin:0 0 18px;overflow:hidden}
 details.panel[open]{box-shadow:var(--shadow),0 0 0 1px var(--stone)}
-details.panel>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:22px 26px;background:linear-gradient(90deg,#fff 0%,#faf8f5 100%);border-left:6px solid var(--red)}
+details.panel>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:clamp(20px,2.6vw,32px) clamp(18px,3vw,40px);background:linear-gradient(90deg,#fff 0%,#faf8f5 100%);border-left:6px solid var(--red)}
 details.panel>summary::-webkit-details-marker{display:none}
-details.panel>summary .ico{flex:0 0 46px;height:46px;border-radius:12px;background:var(--stone);display:grid;place-items:center;color:var(--maroon)}
-details.panel>summary .ico svg{width:24px;height:24px}
-details.panel>summary h2{margin:0;font-size:clamp(1.2rem,2.4vw,1.6rem)}
-details.panel>summary p{margin:2px 0 0;font-size:.9rem}
-details.panel>summary .tog{margin-left:auto;flex:0 0 36px;height:36px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;transition:transform .25s;font-weight:900}
+details.panel>summary .ico{flex:0 0 58px;height:58px;border-radius:12px;background:var(--stone);display:grid;place-items:center;color:var(--maroon)}
+details.panel>summary .ico svg{width:28px;height:28px}
+details.panel>summary h2{margin:0;font-size:clamp(1.3rem,2.6vw,2rem)}
+details.panel>summary p{margin:4px 0 0;font-size:1rem}
+details.panel>summary .tog{margin-left:auto;flex:0 0 42px;height:42px;font-size:1.2rem;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;transition:transform .25s;font-weight:900}
 details.panel[open]>summary .tog{transform:rotate(45deg)}
 details.panel>summary:hover{background:#f7f3ee}
-.panel-body{padding:8px 26px 30px}
+.panel-body{padding:clamp(10px,1.5vw,18px) clamp(18px,3vw,40px) clamp(26px,3.5vw,44px)}
+details.panel{margin-bottom:22px}
+@media (max-width:560px){details.panel>summary .ico{display:none}}
 .expand-all{display:flex;justify-content:flex-end;gap:10px;margin-bottom:14px}
 .linkbtn{background:none;border:0;color:var(--red);font-weight:700;cursor:pointer;font-family:inherit;font-size:.9rem;text-decoration:underline}
 
@@ -268,7 +296,7 @@ details.panel>summary:hover{background:#f7f3ee}
 .chip{border:2px solid var(--stone);background:#fff;color:var(--ink);border-radius:999px;padding:.5em 1.05em;font-weight:700;font-family:inherit;cursor:pointer;font-size:.88rem}
 .chip[aria-pressed="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff}
 .unit-tools select{margin-left:auto;border:2px solid var(--stone);border-radius:10px;padding:.5em .8em;font-family:inherit;font-weight:600;color:var(--ink)}
-.units{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.units{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px}
 .unit{position:relative;border:1px solid var(--stone);border-radius:var(--radius);padding:20px 18px 18px;display:flex;flex-direction:column;background:#fff;transition:transform .15s,box-shadow .15s}
 .unit:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .unit .cat{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--red)}
@@ -489,7 +517,7 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
 
 <!-- ================= COLLAPSIBLE SECTIONS ================= -->
 <div class="sections">
-  <div class="wrap">
+  <div class="wrap-wide">
     <div class="expand-all">
       <button class="linkbtn" data-all="open">Expand all</button>
       <button class="linkbtn" data-all="close">Collapse all</button>
@@ -680,6 +708,31 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
         </p>
       </div>
     </details>
+  </div>
+</div>
+
+<!-- ================= PHOTO MOSAIC ================= -->
+<section class="mosaic-band" aria-labelledby="tourTitle">
+  <div class="wrap-wide">
+    <div class="band-head">
+      <h2 id="tourTitle">Take a Look Around</h2>
+      <p>Wide paved drives, clean buildings and covered bays, right on Highway 64 West. Tap any photo to enlarge it.</p>
+    </div>
+    <div class="mosaic">
+      <button class="tile big" data-lb><img src="images/tylerstorage_IMG_6757.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6757.jpg" alt="Drive-up storage buildings" loading="lazy"><span>Drive-up storage buildings</span></button>
+      <button class="tile tall" data-lb><img src="images/tylerstorage_IMG_6739-1.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6739-1.jpg" alt="Covered RV &amp; boat bays" loading="lazy"><span>Covered RV &amp; boat bays</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_header1.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2015/07/header1.jpg" alt="Fenced &amp; lighted property" loading="lazy"><span>Fenced &amp; lighted property</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_IMG_6728-1.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6728-1.jpg" alt="Climate controlled hallway" loading="lazy"><span>Climate controlled hallway</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_IMG_2984a1.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2015/07/IMG_2984a1.jpg" alt="Room for trucks &amp; trailers" loading="lazy"><span>Room for trucks &amp; trailers</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_IMG_6737-1.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6737-1.jpg" alt="Enclosed auto &amp; boat bays" loading="lazy"><span>Enclosed auto &amp; boat bays</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_header11.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2015/07/header11.jpg" alt="Covered parking" loading="lazy"><span>Covered parking</span></button>
+      <button class="tile" data-lb><img src="images/tylerstorage_IMG_6760.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6760.jpg" alt="Climate controlled building" loading="lazy"><span>Climate controlled building</span></button>
+    </div>
+  </div>
+</section>
+
+<div class="sections">
+  <div class="wrap-wide">
 
     <!-- CLIMATE & STANDARD -->
     <details class="panel" id="climate">
@@ -791,24 +844,26 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
       </div>
     </details>
 
-    <!-- FAQ -->
-    <details class="panel" id="faq">
-      <summary>
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
-        <div><h2>Frequently Asked Questions</h2><p>Fees, hours, payments, RV amenities and more.</p></div>
-        <span class="tog" aria-hidden="true">+</span>
-      </summary>
-      <div class="panel-body faq">
-        <details><summary>What are your office hours?</summary><p>Our office is open Monday–Friday 9:30am–5:00pm and Saturday 9:00am–12:00pm. Renters have gate access seven days a week with a personal access code.</p></details>
-        <details><summary>Are there any move-in fees?</summary><p>A one-time $20 non-refundable admin fee applies to all units. Every unit must be secured with a round disc lock, which is available in our office.</p></details>
-        <details><summary>What temperature are climate controlled units kept at?</summary><p>Climate controlled units are kept between about 65 and 85 degrees year-round.</p></details>
-        <details><summary>Do you offer RV and boat storage in Tyler?</summary><p>Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Some bays have 110V or 220V power.</p></details>
-        <details><summary>What forms of payment do you accept?</summary><p>We accept major credit cards, checks, money orders and cash. You can also <a href="https://storageaffiliatepayments.com/?locationId=eddba7b8-46ff-4ea4-8157-7fcccb7afe71" target="_blank" rel="noopener">pay your bill online</a> any time.</p></details>
-        <details><summary>Can I reserve a unit online?</summary><p>Yes. Reserve online with no payment due until move-in, or rent online and finish your paperwork in our office. Reservations are held for 24 hours.</p></details>
-        <details><summary>Do you sell boxes and moving supplies?</summary><p>Yes. Boxes and moving supplies are available in our office, along with the round disc locks required for all units.</p></details>
-        <details><summary>Is storage insurance available?</summary><p>Yes. Low-cost insurance is available. Ask in the office when you rent.</p></details>
-      </div>
-    </details>
+  </div>
+</div>
+
+<!-- ================= SECURITY IMAGE BAND ================= -->
+<section class="photo-band">
+  <img src="images/tylerstorage_IMG_6741-scaled.jpg" data-orig="https://www.tylerstorage.com/dev/wp-content/uploads/2021/11/IMG_6741-scaled.jpg" alt="East Texas Storage Center buildings and drive lanes in Tyler, TX" loading="lazy">
+  <div class="wrap-wide band-inner">
+    <h2>Secure, Simple, Local</h2>
+    <ul class="band-points">
+      <li><b>7 days</b><span>Personal-code gate access</span></li>
+      <li><b>24/7</b><span>Video surveillance</span></li>
+      <li><b>FREE</b><span>Dump station, water &amp; air</span></li>
+      <li><b>On-site</b><span>Local management</span></li>
+    </ul>
+    <a class="btn btn-red" href="#units">Find Your Unit</a>
+  </div>
+</section>
+
+<div class="sections">
+  <div class="wrap-wide">
 
     <!-- CONTACT -->
     <details class="panel" id="contact" open>
@@ -848,6 +903,25 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
           </div>
           <iframe class="map" title="Map to East Texas Storage Center, 12447 State Hwy 64 West, Tyler TX" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13481.12776232108!2d-95.3734174!3d32.3579814!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x66461496fe8ab379!2sEast+Texas+Storage+Center!5e0!3m2!1sen!2s!4v1438599197568" allowfullscreen></iframe>
         </div>
+      </div>
+    </details>
+
+    <!-- FAQ -->
+    <details class="panel" id="faq">
+      <summary>
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
+        <div><h2>Frequently Asked Questions</h2><p>Fees, hours, payments, RV amenities and more.</p></div>
+        <span class="tog" aria-hidden="true">+</span>
+      </summary>
+      <div class="panel-body faq">
+        <details><summary>What are your office hours?</summary><p>Our office is open Monday–Friday 9:30am–5:00pm and Saturday 9:00am–12:00pm. Renters have gate access seven days a week with a personal access code.</p></details>
+        <details><summary>Are there any move-in fees?</summary><p>A one-time $20 non-refundable admin fee applies to all units. Every unit must be secured with a round disc lock, which is available in our office.</p></details>
+        <details><summary>What temperature are climate controlled units kept at?</summary><p>Climate controlled units are kept between about 65 and 85 degrees year-round.</p></details>
+        <details><summary>Do you offer RV and boat storage in Tyler?</summary><p>Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Some bays have 110V or 220V power.</p></details>
+        <details><summary>What forms of payment do you accept?</summary><p>We accept major credit cards, checks, money orders and cash. You can also <a href="https://storageaffiliatepayments.com/?locationId=eddba7b8-46ff-4ea4-8157-7fcccb7afe71" target="_blank" rel="noopener">pay your bill online</a> any time.</p></details>
+        <details><summary>Can I reserve a unit online?</summary><p>Yes. Reserve online with no payment due until move-in, or rent online and finish your paperwork in our office. Reservations are held for 24 hours.</p></details>
+        <details><summary>Do you sell boxes and moving supplies?</summary><p>Yes. Boxes and moving supplies are available in our office, along with the round disc locks required for all units.</p></details>
+        <details><summary>Is storage insurance available?</summary><p>Yes. Low-cost insurance is available. Ask in the office when you rent.</p></details>
       </div>
     </details>
   </div>
