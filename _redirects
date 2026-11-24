@@ -8,6 +8,7 @@
 /contact-us/                                /#contact   301
 /contact-us                                 /#contact   301
 
-# The Reserve buttons still point to https://www.tylerstorage.com/dev/reservation (kept as-is).
-# If the old WordPress install under /dev is retired, uncomment the next line so those buttons land on the units list:
-# /dev/reservation   /#units   301
+# Old reservation page -> online reservations on U-Haul
+
+/dev/reservation    https://www.uhaul.com/Locations/Self-Storage-near-Tyler-TX-75704/1010830/   301
+/dev/reservation/   https://www.uhaul.com/Locations/Self-Storage-near-Tyler-TX-75704/1010830/   301
