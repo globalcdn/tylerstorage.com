@@ -550,7 +550,7 @@
       "name": "Do you have RV storage with electricity in Tyler?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bays have 110V or 220V power, and covered bays without electricity are also available. Customers get a free dump station and free water and air. Call to check which powered bays are open."
+        "text": "Bays have 110V or 220V power. Customers get a free dump station and free water and air. Call to check which powered bays are open."
       }
     },
     {
@@ -574,7 +574,7 @@
       "name": "Are there any move-in fees?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A one-time $35 move-in fee applies to all units. It covers the admin fee and includes your round disc lock. Every unit must be secured with a round disc lock, which is available in our office for purchase."
+        "text": "A one-time $35 move-in fee applies to all units. It covers the admin fee and includes your round disc lock. Every unit must be secured with a round disc lock."
       }
     },
     {
@@ -590,7 +590,7 @@
       "name": "Do you offer RV and boat storage in Tyler?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Bays have 110V or 220V power, and covered bays without electricity are also available."
+        "text": "Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Bays have 110V or 220V power."
       }
     },
     {
@@ -614,7 +614,7 @@
       "name": "Do you sell boxes and moving supplies?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Boxes and moving supplies are available in our office, along with the round disc locks required for all units (your first lock is included in the $35 move-in fee)."
+        "text": "Yes. Boxes and moving supplies are available in our office."
       }
     },
     {
@@ -801,6 +801,7 @@ details.panel{margin-bottom:22px}
 .chip[aria-pressed="true"]{background:var(--maroon);border-color:var(--maroon);color:#fff}
 .unit-tools select{margin-left:auto;border:2px solid var(--stone);border-radius:10px;padding:.5em .8em;font-family:inherit;font-weight:600;color:var(--ink)}
 .units{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:16px}
+.unit[hidden]{display:none!important}
 .unit{position:relative;border:1px solid var(--stone);border-radius:var(--radius);padding:20px 18px 18px;display:flex;flex-direction:column;background:#fff;transition:transform .15s,box-shadow .15s}
 .unit:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
 .unit .cat{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--red)}
@@ -948,7 +949,7 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="announce" role="note">
-  🔒 <strong>1-Year Price Lock</strong> on every rental, and your disc lock is included in the $35 move-in fee. <a href="#included">See what\'s included →</a>
+  🔒 <strong>1-Year Price Lock</strong> on every rental, and your disc lock is included in the $35 move-in fee. <a href="#included">See what's included →</a>
 </div>
 
 <div class="topbar">
@@ -1260,7 +1261,7 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
           <ul>
             <li><strong>1-Year Price Lock:</strong> your monthly rate is locked in for 12 months from move-in.</li>
             <li>Prices and availability are pulled from our live U-Haul listing and can change daily. Call <a href="tel:903-592-5350">903.592.5350</a> to confirm.</li>
-            <li>A one-time <strong>$35 move-in fee</strong> covers the admin fee <strong>and includes your round disc lock</strong>. Every unit must be secured with a round disc lock, which is available in our office for purchase.</li>
+            <li>A one-time <strong>$35 move-in fee</strong> covers the admin fee <strong>and includes your round disc lock</strong>. Every unit must be secured with a round disc lock.</li>
             <li><strong>Reserve - Online</strong> holds a unit with no payment until move-in. Reservations are held for 24 hours. <strong>Rent Now</strong> lets you start online, and your rental is finalized in our office.</li>
             <li>U-Haul "1 month free" storage coupons are not honored at this location.</li>
           </ul>
@@ -1344,7 +1345,7 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
         <div class="two">
           <div>
             <p>Texas sun and weather are hard on RVs, boats, autos and motorcycles. UV damages tires, seals, rubber roofs, caulking and paint. We offer covered and open storage for large and small RVs, plus enclosed storage for autos, motorcycles and boats.</p>
-            <p>Our <strong>14-foot-wide bays</strong> give you room to load storage bins, open slide-outs and do the manufacturer's recommended lubrication while your rig is stored. Enclosed auto and boat bays are <strong>12′ × 30′ with overhead doors</strong>. Bays have <strong>110V or 220V power</strong>, and covered bays without electricity are also available.</p>
+            <p>Our <strong>14-foot-wide bays</strong> give you room to load storage bins, open slide-outs and do the manufacturer's recommended lubrication while your rig is stored. Enclosed auto and boat bays are <strong>12′ × 30′ with overhead doors</strong>. Bays have <strong>110V or 220V power</strong>.</p>
             <ul class="checks">
               <li>12′×30′ enclosed auto &amp; boat bays</li>
               <li>Covered 14′×31′ &amp; 14′×45′ bays</li>
@@ -1422,7 +1423,7 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
           <div class="need"><h3>Business &amp; Contractor Storage</h3><p>Keep inventory, tools, equipment, files and job-site materials close to Tyler without paying for warehouse space. Wide driveways fit trucks and trailers, and drive-through units make loading easy.</p></div>
           <div class="need"><h3>Student Storage</h3><p>Heading home from UT Tyler or Tyler Junior College for the summer? Store your dorm or apartment furniture in a small unit and pick it up when classes start. Short-term rentals are welcome.</p></div>
           <div class="need"><h3>Boat Storage near Lake Palestine</h3><p>We're a short drive from Lake Palestine and the Chandler area. Keep your boat out of the sun in a covered 14′ bay or an enclosed 12′×30′ bay with an overhead door, with free air and water on site.</p></div>
-          <div class="need"><h3>RV &amp; Camper Storage</h3><p>Covered 14′×31′ and 14′×45′ bays leave room to open slide-outs and do routine maintenance. Bays have 110V or 220V power, and covered bays without electricity are also available. The dump station is free for customers.</p></div>
+          <div class="need"><h3>RV &amp; Camper Storage</h3><p>Covered 14′×31′ and 14′×45′ bays leave room to open slide-outs and do routine maintenance. Bays have 110V or 220V power. The dump station is free for customers.</p></div>
           <div class="need"><h3>Seasonal &amp; Climate-Sensitive Items</h3><p>Holiday decorations, furniture, electronics, photos and paperwork stay between about 65 and 85 degrees in our climate controlled units, away from East Texas heat and humidity.</p></div>
         </div>
         <p style="margin-top:18px"><a class="btn btn-red" href="#units">See Sizes &amp; Prices</a></p>
@@ -1542,15 +1543,15 @@ dialog.lb button{position:absolute;top:8px;right:8px;width:40px;height:40px;bord
         <details><summary>What's the difference between office hours and gate access hours?</summary><p>Our office is staffed Monday–Friday 9:30am–5:00pm and Saturday 9:00am–12:00pm. Renters can come and go through the electronic gate with their personal code every day from 6:00am to 9:00pm. RV customers have 24/7 access and aren't limited to regular gate hours.</p></details>
         <details><summary>Can I store a car, truck or motorcycle?</summary><p>Yes. Enclosed 12′×30′ bays with 10′ overhead doors are ideal for cars, trucks, motorcycles and boats. We also have covered 14′ bays and outside parking.</p></details>
         <details><summary>Do you have boat storage near Lake Palestine?</summary><p>Yes. We're a short drive from Lake Palestine and the Chandler area, with covered 14′ bays and enclosed 12′×30′ bays for boats, plus free air and water for customers.</p></details>
-        <details><summary>Do you have RV storage with electricity in Tyler?</summary><p>Bays have 110V or 220V power, and covered bays without electricity are also available. Customers get a free dump station and free water and air. Call to check which powered bays are open.</p></details>
+        <details><summary>Do you have RV storage with electricity in Tyler?</summary><p>Bays have 110V or 220V power. Customers get a free dump station and free water and air. Call to check which powered bays are open.</p></details>
         <details><summary>Do you offer short-term storage?</summary><p>Yes. We offer both short-term and long-term rentals, which works well for moves, remodels, college summers and seasonal storage.</p></details>
         <details><summary>What are your office hours?</summary><p>Our office is open Monday–Friday 9:30am–5:00pm and Saturday 9:00am–12:00pm. Renters have gate access seven days a week, 6:00am–9:00pm, with a personal access code, and RV customers have 24/7 access.</p></details>
-        <details><summary>Are there any move-in fees?</summary><p>A one-time $35 move-in fee applies to all units. It covers the admin fee and includes your round disc lock. Every unit must be secured with a round disc lock, which is available in our office for purchase.</p></details>
+        <details><summary>Are there any move-in fees?</summary><p>A one-time $35 move-in fee applies to all units. It covers the admin fee and includes your round disc lock. Every unit must be secured with a round disc lock.</p></details>
         <details><summary>What temperature are climate controlled units kept at?</summary><p>Climate controlled units are kept between about 65 and 85 degrees year-round.</p></details>
-        <details><summary>Do you offer RV and boat storage in Tyler?</summary><p>Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Bays have 110V or 220V power, and covered bays without electricity are also available.</p></details>
+        <details><summary>Do you offer RV and boat storage in Tyler?</summary><p>Yes. We have covered 14′×31′ and 14′×45′ bays, enclosed 12′×30′ auto and boat bays with overhead doors, and outside parking. Customers get a free dump station plus free water and air. Bays have 110V or 220V power.</p></details>
         <details><summary>What forms of payment do you accept?</summary><p>We accept major credit cards, checks, money orders and cash. You can also <a href="https://storageaffiliatepayments.com/?locationId=eddba7b8-46ff-4ea4-8157-7fcccb7afe71" target="_blank" rel="noopener">pay your bill online</a> any time.</p></details>
         <details><summary>Can I reserve a unit online?</summary><p>Yes. Reserve - Online holds a unit with no payment due until move-in, and reservations are held for 24 hours. Rent Now lets you start online, and your rental is finalized in our office.</p></details>
-        <details><summary>Do you sell boxes and moving supplies?</summary><p>Yes. Boxes and moving supplies are available in our office, along with the round disc locks required for all units (your first lock is included in the $35 move-in fee).</p></details>
+        <details><summary>Do you sell boxes and moving supplies?</summary><p>Yes. Boxes and moving supplies are available in our office.</p></details>
         <details><summary>Is storage insurance available?</summary><p>Yes. Low-cost insurance is available. Ask in the office when you rent.</p></details>
       </div>
     </details>
