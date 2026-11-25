@@ -7,7 +7,7 @@ This is a plain static site: no build step and no Worker code. Cloudflare serves
 `wrangler.jsonc` only tells Cloudflare to serve this folder; its `name` must match the Worker's name in the dashboard.
 
 **Uploading by hand instead:** upload only these files and folders:
-`index.html`, `404.html`, `images/`, `robots.txt`, `sitemap.xml`, `_headers`, `_redirects`
+`index.html`, `404.html`, all `tylerstorage_*` image files, `robots.txt`, `sitemap.xml`, `_headers`, `_redirects`
 
 - `_redirects`: old WordPress URLs to the matching sections, and /dev/reservation to U-Haul
 - `_headers`: security headers and image caching
