@@ -1,11 +1,15 @@
-# TylerStorage.com: one-page site for Cloudflare Pages
+# TylerStorage.com: one-page site on Cloudflare Workers
 
-## Deploy
-1. Put the 17 `tylerstorage_*` image files (downloaded from the current site) in the `images` folder.
-   Any image that's missing falls back to the original WordPress URL automatically.
-2. In Cloudflare: Workers & Pages → Create → Pages → Upload assets (or connect a Git repo). Build command: none. Output directory: `/` (this folder).
-3. Add the custom domain `www.tylerstorage.com` (and redirect the bare domain to www).
-4. Submit `https://www.tylerstorage.com/sitemap.xml` in Google Search Console, and update the Google Business Profile website link if needed.
+## Deploy (Cloudflare Workers, connected to this GitHub repo)
+Every push to `main` builds and deploys automatically (`npx wrangler deploy` reads `wrangler.jsonc`).
+Cloudflare build settings: build command empty, deploy command `npx wrangler deploy`, root directory `/`.
+
+- `public/`: the website itself (index.html, images, robots.txt, sitemap.xml, _headers)
+- `src/worker.js`: redirects other domains and old WordPress URLs, then serves `public/`
+- `wrangler.jsonc`: Worker settings
+
+To put the site on the real domain: Workers & Pages > tylerstorage > Settings > Domains & Routes > Add > Custom domain,
+then add `www.tylerstorage.com` and `tylerstorage.com` (the domain's DNS must be on Cloudflare).
 
 ## Forwarding easttexasstorage.com and storagetyler.com
 Both domains should send visitors and search engines to **https://www.tylerstorage.com** with a **permanent (301)** redirect.
@@ -17,22 +21,15 @@ In GoDaddy (Domain > Forwarding) for each domain:
 - Settings: **Forward only**. Do NOT use "Forward with masking": masking puts the site in a frame, which hides it from search engines.
 - Set it up for both the bare domain and `www.`
 
-Better option, if you can: move those domains' DNS to Cloudflare and add them as custom domains on this Pages project
-(or use a Cloudflare Redirect Rule). `functions/_middleware.js` then 301-redirects them to www.tylerstorage.com with the
-path kept (for example storagetyler.com/contact-us/ goes to www.tylerstorage.com/contact-us/, which `_redirects` then sends to /#contact).
-The same file also redirects the bare tylerstorage.com and the project's *.pages.dev address, so only one copy of the site gets indexed.
+Better option, if you can: move those domains' DNS to Cloudflare and add them as custom domains on this Worker. `src/worker.js` then 301-redirects them to www.tylerstorage.com with the
+path kept (for example storagetyler.com/contact-us/ goes to www.tylerstorage.com/contact-us/, which the Worker then sends to /#contact).
+The same file also redirects the bare tylerstorage.com, and marks the *.workers.dev preview address noindex, so only one copy of the site gets indexed.
 
 After forwarding is live:
 - In Google Search Console, verify all three domains. If easttexasstorage.com or storagetyler.com ever had its own pages indexed, use the Change of Address tool to move them to www.tylerstorage.com.
 - Keep both domains registered and set to auto-renew. Letting them lapse throws away the redirect.
 - Use https://www.tylerstorage.com everywhere you list the business (Google Business Profile, Facebook, U-Haul, directories).
 
-## Files
-- `index.html`: the whole site (CSS and JS inline, no build step)
-- `functions/_middleware.js`: 301s every other host name (other domains, bare domain, pages.dev) to www.tylerstorage.com
-- `_redirects`: 301s from the old WordPress page URLs to the matching sections
-- `_headers`: security headers + long caching for images
-- `robots.txt`, `sitemap.xml`
 
 ## Updating unit prices
 Unit cards are plain HTML inside `<div class="units" id="unitGrid">`. Edit the price, the
