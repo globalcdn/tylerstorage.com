@@ -1,5 +1,5 @@
 /**
- * East Texas Storage Center: Cloudflare Worker in front of the static site in /public.
+ * East Texas Storage Center: Cloudflare Worker in front of the static site (files at the top level of the repo).
  *
  * 1. One home for every domain: requests on any other host name (bare tylerstorage.com,
  *    easttexasstorage.com, storagetyler.com, www. versions) get a 301 to

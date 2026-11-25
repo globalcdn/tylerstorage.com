@@ -4,9 +4,10 @@
 Every push to `main` builds and deploys automatically (`npx wrangler deploy` reads `wrangler.jsonc`).
 Cloudflare build settings: build command empty, deploy command `npx wrangler deploy`, root directory `/`.
 
-- `public/`: the website itself (index.html, images, robots.txt, sitemap.xml, _headers)
-- `src/worker.js`: redirects other domains and old WordPress URLs, then serves `public/`
+- `index.html`, `images/`, `robots.txt`, `sitemap.xml`, `_headers`: the website itself (top level of `main`)
+- `src/worker.js`: redirects other domains and old WordPress URLs, then serves the site files
 - `wrangler.jsonc`: Worker settings
+- `.assetsignore`: keeps README, src/ and config files from being served publicly
 
 To put the site on the real domain: Workers & Pages > tylerstorage > Settings > Domains & Routes > Add > Custom domain,
 then add `www.tylerstorage.com` and `tylerstorage.com` (the domain's DNS must be on Cloudflare).
