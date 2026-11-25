@@ -1,8 +1,7 @@
-# Files in the repo that must NOT be served on the website
+# Repo files that must NOT be served on the website
 .git
 .assetsignore
 .gitignore
-src
 wrangler.jsonc
 wrangler.toml
 README.md

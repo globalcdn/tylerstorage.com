@@ -1,0 +1,15 @@
+# Old WordPress page URLs -> sections of the one-page site (301 keeps their SEO value)
+/climate-controlled-standard-self-storage   /#climate   301
+/climate-controlled-standard-self-storage/  /#climate   301
+/covered-rv-and-boat-facilities             /#rv        301
+/covered-rv-and-boat-facilities/            /#rv        301
+/contact-us                                 /#contact   301
+/contact-us/                                /#contact   301
+/reservation                                /#units     301
+/reservation/                               /#units     301
+
+# Old reservation page -> online reservations on U-Haul
+/dev/reservation    https://www.uhaul.com/Locations/Self-Storage-near-Tyler-TX-75704/1010830/   301
+/dev/reservation/   https://www.uhaul.com/Locations/Self-Storage-near-Tyler-TX-75704/1010830/   301
+/dev                /   301
+/dev/*              /   301
